@@ -17,3 +17,4 @@ Games:
 
 Rogue Hero: https://github.com/kjustin2/Rogue-Hero
 WorldOfFolks: https://github.com/kjustin2/WorldofFolks
+WorldOfFolks2: https://github.com/kjustin2/WorldOfFolks2
