@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Justin Kramer — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d0f14;
+      --surface:   #161b27;
+      --border:    #232b3e;
+      --text:      #e2e8f0;
+      --muted:     #7a889e;
+      --clothing:  #10b981;
+      --music:     #38bdf8;
+      --apps:      #a78bfa;
+      --games:     #fb923c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ─────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(16,185,129,.15) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 50% at 80% 60%, rgba(56,189,248,.12) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 60% at 50% 100%, rgba(167,139,250,.10) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 10vw, 6rem);
+      font-weight: 900;
+      line-height: 1.05;
+      background: linear-gradient(135deg, #fff 30%, var(--music) 70%, var(--clothing));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      justify-content: center;
+    }
+
+    .nav-pill {
+      padding: .5rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: .875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color .2s, color .2s, transform .15s;
+    }
+    .nav-pill:hover { transform: translateY(-2px); }
+    .nav-pill[data-cat="clothing"]:hover { border-color: var(--clothing); color: var(--clothing); }
+    .nav-pill[data-cat="music"]:hover    { border-color: var(--music);    color: var(--music); }
+    .nav-pill[data-cat="apps"]:hover     { border-color: var(--apps);     color: var(--apps); }
+    .nav-pill[data-cat="games"]:hover    { border-color: var(--games);    color: var(--games); }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      color: var(--muted);
+      font-size: .75rem;
+      letter-spacing: .1em;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .scroll-hint svg { width: 20px; opacity: .6; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── SECTIONS ─────────────────────────────────────── */
+    .section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── CARDS ────────────────────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-decoration: none;
+      color: var(--text);
+      overflow: hidden;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      opacity: 0;
+      transition: opacity .3s;
+      pointer-events: none;
+    }
+
+    .card:hover { transform: translateY(-6px); }
+
+    .card-label {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .card-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      font-size: .875rem;
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .8rem;
+      font-weight: 600;
+      margin-top: .5rem;
+      opacity: .8;
+      transition: opacity .2s, gap .2s;
+    }
+    .card:hover .card-cta { opacity: 1; gap: .6rem; }
+
+    /* Per-category theming */
+    [data-cat="clothing"] .section-icon { background: rgba(16,185,129,.15); }
+    [data-cat="clothing"] .section-title { color: var(--clothing); }
+    [data-cat="clothing"] .card-label,
+    [data-cat="clothing"] .card-cta { color: var(--clothing); }
+    [data-cat="clothing"] .card:hover { border-color: var(--clothing); box-shadow: 0 8px 40px rgba(16,185,129,.15); }
+
+    [data-cat="music"] .section-icon { background: rgba(56,189,248,.15); }
+    [data-cat="music"] .section-title { color: var(--music); }
+    [data-cat="music"] .card-label,
+    [data-cat="music"] .card-cta { color: var(--music); }
+    [data-cat="music"] .card:hover { border-color: var(--music); box-shadow: 0 8px 40px rgba(56,189,248,.15); }
+
+    [data-cat="apps"] .section-icon { background: rgba(167,139,250,.15); }
+    [data-cat="apps"] .section-title { color: var(--apps); }
+    [data-cat="apps"] .card-label,
+    [data-cat="apps"] .card-cta { color: var(--apps); }
+    [data-cat="apps"] .card:hover { border-color: var(--apps); box-shadow: 0 8px 40px rgba(167,139,250,.15); }
+
+    [data-cat="games"] .section-icon { background: rgba(251,146,60,.15); }
+    [data-cat="games"] .section-title { color: var(--games); }
+    [data-cat="games"] .card-label,
+    [data-cat="games"] .card-cta { color: var(--games); }
+    [data-cat="games"] .card:hover { border-color: var(--games); box-shadow: 0 8px 40px rgba(251,146,60,.15); }
+
+    /* ── DIVIDER ──────────────────────────────────────── */
+    .divider {
+      max-width: 1100px;
+      margin: 0 auto;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── FOOTER ───────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────── */
+    @media (max-width: 600px) {
+      .section { padding: 4rem 1.25rem; }
+      .section-header { flex-wrap: wrap; }
+      .section-line { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <p class="hero-tag">Portfolio</p>
+    <h1>Justin Kramer</h1>
+    <p>Designer, developer, and creator — building across fashion, music, software, and games.</p>
+    <nav class="nav-pills">
+      <a class="nav-pill" href="#clothing" data-cat="clothing">👕 Clothing</a>
+      <a class="nav-pill" href="#music"    data-cat="music">🎵 Music</a>
+      <a class="nav-pill" href="#apps"     data-cat="apps">⚡ Apps</a>
+      <a class="nav-pill" href="#games"    data-cat="games">🎮 Games</a>
+    </nav>
+    <div class="scroll-hint">
+      <span>SCROLL</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ── CLOTHING ── -->
+  <div id="clothing" data-cat="clothing">
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">👕</div>
+        <h2 class="section-title">Clothing</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards">
+        <a class="card" href="https://www.emeraldclothingcompany.com/" target="_blank" rel="noopener">
+          <span class="card-label">Brand</span>
+          <span class="card-name">Emerald Clothing Company</span>
+          <span class="card-desc">A clothing brand rooted in bold design. Explore the full collection at the official store.</span>
+          <span class="card-cta">Visit store →</span>
+        </a>
+      </div>
+    </section>
+    <hr class="divider" />
+  </div>
+
+  <!-- ── MUSIC ── -->
+  <div id="music" data-cat="music">
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">🎵</div>
+        <h2 class="section-title">Music</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards">
+        <a class="card" href="https://soundcloud.com/skyblueprod" target="_blank" rel="noopener">
+          <span class="card-label">SoundCloud</span>
+          <span class="card-name">SkyBlue</span>
+          <span class="card-desc">Original productions and mixes — stream tracks directly on SoundCloud.</span>
+          <span class="card-cta">Listen on SoundCloud →</span>
+        </a>
+        <a class="card" href="https://open.spotify.com/artist/117FmacNQVNtCnSNE51n9e?si=PNMxt_kHTHiAxS1LwFwEvA" target="_blank" rel="noopener">
+          <span class="card-label">Spotify</span>
+          <span class="card-name">SkyBlue</span>
+          <span class="card-desc">Follow SkyBlue on Spotify and add tracks to your playlists.</span>
+          <span class="card-cta">Open on Spotify →</span>
+        </a>
+      </div>
+    </section>
+    <hr class="divider" />
+  </div>
+
+  <!-- ── APPS ── -->
+  <div id="apps" data-cat="apps">
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">⚡</div>
+        <h2 class="section-title">Apps</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards">
+        <a class="card" href="https://chordline.art/" target="_blank" rel="noopener">
+          <span class="card-label">Web App</span>
+          <span class="card-name">ChordLine</span>
+          <span class="card-desc">A platform built for local artists — connecting musicians and helping them grow their audience.</span>
+          <span class="card-cta">Launch app →</span>
+        </a>
+      </div>
+    </section>
+    <hr class="divider" />
+  </div>
+
+  <!-- ── GAMES ── -->
+  <div id="games" data-cat="games">
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">🎮</div>
+        <h2 class="section-title">Games</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards">
+        <a class="card" href="https://github.com/kjustin2/Rogue-Hero" target="_blank" rel="noopener">
+          <span class="card-label">GitHub</span>
+          <span class="card-name">Rogue Hero</span>
+          <span class="card-desc">A rogue-like adventure game. Explore dungeons, battle enemies, and see how far you can survive.</span>
+          <span class="card-cta">View on GitHub →</span>
+        </a>
+        <a class="card" href="https://github.com/kjustin2/WorldofFolks" target="_blank" rel="noopener">
+          <span class="card-label">GitHub</span>
+          <span class="card-name">WorldOfFolks</span>
+          <span class="card-desc">An open-world folk-inspired game built from the ground up. Dive into the source code and lore.</span>
+          <span class="card-cta">View on GitHub →</span>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>Built by Justin Kramer &nbsp;·&nbsp; <a href="https://github.com/kjustin2" style="color:inherit;text-decoration:underline;" target="_blank" rel="noopener">github.com/kjustin2</a></p>
+  </footer>
+
+</body>
+</html>
