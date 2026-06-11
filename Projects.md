@@ -16,5 +16,6 @@ ChordLine for Local Artists: https://chordline.art/
 Games:
 
 Rogue Hero: https://github.com/kjustin2/Rogue-Hero
+Rogue Hero 2: https://kjustin2.itch.io/rogue-hero-2
 WorldOfFolks: https://github.com/kjustin2/WorldofFolks
 WorldOfFolks2: https://github.com/kjustin2/WorldOfFolks2
