@@ -13,6 +13,7 @@ Apps:
 
 ChordLine for Local Artists: https://chordline.art/
 Money Choices - Spending Habits Simulator: https://kjustin2.github.io/Spending-Learning-Game/
+Pick Cents Daily - Plain-English Kalshi Picks: https://pickcentsdaily.com/
 
 Games:
 
