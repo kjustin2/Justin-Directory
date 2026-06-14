@@ -6,8 +6,7 @@ Emerald Clothing Company: https://www.emeraldclothingcompany.com/
 
 Music:
 
-SkyBlue on SoundCloud: https://soundcloud.com/skyblueprod
-SkyBlue on Spotify: https://open.spotify.com/artist/117FmacNQVNtCnSNE51n9e?si=PNMxt_kHTHiAxS1LwFwEvA
+SkyBlue: SoundCloud https://soundcloud.com/skyblueprod, Spotify https://open.spotify.com/artist/117FmacNQVNtCnSNE51n9e?si=PNMxt_kHTHiAxS1LwFwEvA
 
 Apps:
 

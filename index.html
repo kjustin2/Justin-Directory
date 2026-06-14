@@ -225,10 +225,20 @@
       font-size: .8rem;
       font-weight: 600;
       margin-top: .5rem;
+      text-decoration: none;
       opacity: .8;
       transition: opacity .2s, gap .2s;
     }
     .card:hover .card-cta { opacity: 1; gap: .6rem; }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: .5rem;
+    }
+
+    .card-actions .card-cta { margin-top: 0; }
 
     /* Per-category theming */
     [data-cat="clothing"] .section-icon { background: rgba(16,185,129,.15); }
@@ -327,18 +337,15 @@
         <div class="section-line"></div>
       </div>
       <div class="cards">
-        <a class="card" href="https://soundcloud.com/skyblueprod" target="_blank" rel="noopener">
-          <span class="card-label">SoundCloud</span>
+        <div class="card">
+          <span class="card-label">Artist</span>
           <span class="card-name">SkyBlue</span>
-          <span class="card-desc">Original productions and mixes — stream tracks directly on SoundCloud.</span>
-          <span class="card-cta">Listen on SoundCloud →</span>
-        </a>
-        <a class="card" href="https://open.spotify.com/artist/117FmacNQVNtCnSNE51n9e?si=PNMxt_kHTHiAxS1LwFwEvA" target="_blank" rel="noopener">
-          <span class="card-label">Spotify</span>
-          <span class="card-name">SkyBlue</span>
-          <span class="card-desc">Follow SkyBlue on Spotify and add tracks to your playlists.</span>
-          <span class="card-cta">Open on Spotify →</span>
-        </a>
+          <span class="card-desc">Original productions and mixes from SkyBlue, available on SoundCloud and Spotify.</span>
+          <span class="card-actions">
+            <a class="card-cta" href="https://soundcloud.com/skyblueprod" target="_blank" rel="noopener">SoundCloud →</a>
+            <a class="card-cta" href="https://open.spotify.com/artist/117FmacNQVNtCnSNE51n9e?si=PNMxt_kHTHiAxS1LwFwEvA" target="_blank" rel="noopener">Spotify →</a>
+          </span>
+        </div>
       </div>
     </section>
     <hr class="divider" />
