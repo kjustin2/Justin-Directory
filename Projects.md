@@ -6,7 +6,14 @@ Emerald Clothing Company: https://www.emeraldclothingcompany.com/
 
 Music:
 
-SkyBlue: Spotify https://open.spotify.com/artist/117FmacNQVNtCnSNE51n9e?si=PNMxt_kHTHiAxS1LwFwEvA, SoundCloud https://soundcloud.com/skyblueprod
+SkyBlue - Dance and house music made in a home studio.
+
+- Spotify: https://open.spotify.com/artist/117FmacNQVNtCnSNE51n9e
+- SoundCloud: https://soundcloud.com/skybluemusicproduction
+- YouTube: https://www.youtube.com/@skybluemusicproduction
+- Instagram: https://www.instagram.com/skybluemusicproduction/
+- TikTok: https://www.tiktok.com/@skybluemusicproduction
+- Linktree: https://linktr.ee/skyblue.music.production
 
 Apps:
 
@@ -15,6 +22,11 @@ Money Choices - Spending Habits Simulator: https://kjustin2.github.io/Spending-L
 Pick Cents Daily - Plain-English Kalshi Picks: https://pickcentsdaily.com/
 
 Games:
+
+Bezel Studios - Indie games. Strange worlds. Big moments.
+
+- Instagram: https://www.instagram.com/bezelstudiosgames/
+- TikTok: https://www.tiktok.com/@bezelstudiosgames
 
 Rogue Hero: https://github.com/kjustin2/Rogue-Hero
 Rogue Hero 2: https://kjustin2.itch.io/rogue-hero-2
